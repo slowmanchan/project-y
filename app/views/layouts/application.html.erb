@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= @title || "ProjectY" %></title>
+  <title><%= @title || "ProjectY" %></title>
 
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
+<body>
+  <%= render 'layouts/header' %>
   <% flash.each do |key, message| %>
-    <div class="callout <%= key %>" data-closable><%= message %>
-      <button class="close-button" type="button" data-close><span>&times;</span></button>
-    </div>
+  <div class="callout <%= key %>" data-closable><%= message %>
+    <button class="close-button" type="button" data-close><span>&times;</span></button>
+  </div>
   <% end %>
-    <%= yield %>
-    <br/>
-    <div class="row">
-  <%= debug(params) %>
-</div>
-  </body>
+  <%= yield %>
+  <br/>
+  <div class="row">
+    <%= debug(params) %>
+  </div>
+</body>
 </html>
