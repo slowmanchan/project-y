@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
       flash[:success] = "Your project is alive!"
       redirect_to @project
     else
-      flash.now[:danger] = "No good"
+      flash.now[:alert] = "Project has not been created."
       render 'new'
     end
   end

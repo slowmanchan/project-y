@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= @title || "ProjectY" %></title>
 
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -13,9 +13,14 @@
 
   <body>
   <% flash.each do |key, message| %>
-    <div><%= message %></div>
+    <div class="callout <%= key %>" data-closable><%= message %>
+      <button class="close-button" type="button" data-close><span>&times;</span></button>
+    </div>
   <% end %>
     <%= yield %>
-
+    <br/>
+    <div class="row">
+  <%= debug(params) %>
+</div>
   </body>
 </html>
