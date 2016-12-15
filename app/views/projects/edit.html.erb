@@ -1,10 +1,13 @@
 <div class="row">
-  <h1>Project Settings</h1>
-  <h2><%= @project.title %></h2>
+  <div class="large-6 columns">
+    <h1>Project Settings</h1>
+    <h2><%= @project.title %></h2>
 
-  <%= simple_form_for(@project) do |f| %>
+    <%= simple_form_for(@project) do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.submit :Save, class: "button" %>
-  <% end %>
+    <%= f.input :level, label: "Difficulty Level", collection: 1..5 %>
+    <%= f.button :submit, class: "button" %>
+    <% end %>
+  </div>
 </div>

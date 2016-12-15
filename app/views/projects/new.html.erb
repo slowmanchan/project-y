@@ -1,11 +1,12 @@
 <div class="row">
-  <div class="large-6">
+  <div class="large-6 columns">
     <h1>New project</h1>
     <%= simple_form_for(@project) do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
+    <%= f.input :level, label: "Difficulty Level", collection: 1..5  %>
 
-    <%= f.submit :submit, class: "button" %>
+    <%= f.button :submit, class: "button" %>
     <% end %>
   </div>
 </div>

@@ -11,7 +11,9 @@ RSpec.describe "users can edit projects" do
   scenario "with valid info" do
     fill_in "Title", with: "Reactor"
     fill_in "Description", with: "some stuff"
-    click_button "Save"
+    select "2", from: "Difficulty Level"
+
+    click_button "Update Project"
 
     expect(page).to have_content "Project saved!"
     expect(page).to have_content "Reactor"
@@ -19,7 +21,7 @@ RSpec.describe "users can edit projects" do
 
   scenario "with invalid info" do
     fill_in "Title", with: ""
-    click_button "Save"
+    click_button "Update Project"
 
     expect(page).to have_content "Project not saved"
   end
