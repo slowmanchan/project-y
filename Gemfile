@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'byebug'
 end
 
@@ -55,3 +56,5 @@ gem 'pundit'
 gem 'figaro'
 gem 'omniauth'
 gem 'factory_girl'
+gem 'simple_form'
+gem 'foundation-rails'
