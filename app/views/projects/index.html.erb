@@ -1,6 +1,23 @@
 <div class="row">
-  <div class="large-6">
+  <div class="small-12 medium-6">
     <h1>Projects</h1>
-    <%= link_to "New project", new_project_path %>
+    <%= link_to "New project", new_project_path, class: "button" %>
+    <table class="actions">
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Author</th>
+          <th>Rating</th>
+          <th>Date added</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @projects.each do |project| %>
+        <tr>
+          <td><%= link_to project.title, project %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
