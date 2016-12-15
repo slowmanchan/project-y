@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    
+
     flash[:success] = "Project deleted"
     redirect_to projects_path
   end
@@ -51,6 +51,9 @@ class ProjectsController < ApplicationController
 
     def setup_project
       @project = Project.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The project does not exist"
+      redirect_to projects_path
     end
 
     def sanitize_params
