@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :setup_project, only: [:edit, :show, :update]
+  before_action :setup_project, only: [:edit, :show, :update, :destroy]
   before_action :sanitize_params, only: [:create]
 
   def index
@@ -34,6 +34,13 @@ class ProjectsController < ApplicationController
       flash.now[:alert] = "Project not saved"
       render "edit"
     end
+  end
+
+  def destroy
+    @project.destroy
+    
+    flash[:success] = "Project deleted"
+    redirect_to projects_path
   end
 
   private
