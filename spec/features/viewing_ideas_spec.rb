@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.feature "users can view ideas for each project" do
   before do
     react = FactoryGirl.create(:project, title: "Reactor")
+
     FactoryGirl.create(:idea, project: react, title: "Rails", description: "I want it that way")
 
     jquery = FactoryGirl.create(:project, title: "JQuery")

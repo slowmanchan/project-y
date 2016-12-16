@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_project
+  before_action :set_idea, only: [:show, :edit, :update]
 
   def new
     @idea = @project.ideas.build
@@ -17,7 +18,19 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea = @project.ideas.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @idea.update(idea_params)
+      flash[:success] = "Idea edited successfully"
+      redirect_to [@project, @idea]
+    else
+      flash.now[:alert] = "Idea not saved"
+      render "edit"
+    end
   end
 
   private
@@ -28,5 +41,9 @@ class IdeasController < ApplicationController
 
     def set_project
       @project = Project.find(params[:project_id])
+    end
+
+    def set_idea
+      @idea = @project.ideas.find(params[:id])
     end
 end

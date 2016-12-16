@@ -11,13 +11,13 @@ RSpec.describe "User can add ideas to projects" do
   scenario "with valid info" do
     fill_in "Title", with: "Try using D3 instead"
     fill_in "Description", with: "D3 might be a better choice for your project as it uses alot of stuff"
-    click_button "Create Idea"
+    click_button "Save"
 
     expect(page).to have_content "Idea added successfully"
   end
 
   scenario "with invalid info" do
-    click_button "Create Idea"
+    click_button "Save"
 
     expect(page).to have_content "Idea not added"
     expect(page).to have_content "Title can't be blank"
