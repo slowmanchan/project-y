@@ -16,7 +16,7 @@
     </div>
     <% @project.ideas.each do |idea| %>
     <div class="callout">
-      <h5><%= idea.title %></h5>
+      <h5><%= link_to idea.title, [@project, idea] %></h5>
       <p><%= idea.description %></p>
     </div>
     <% end %>
