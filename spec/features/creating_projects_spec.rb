@@ -20,7 +20,7 @@ RSpec.feature "a user can make projects" do
     click_button "Create Project"
 
     expect(page).to have_content "Project has not been created."
-    expect(page).to have_content "can't be blank"
+    expect(page).to have_content "Title can't be blank"
   end
 
 end
