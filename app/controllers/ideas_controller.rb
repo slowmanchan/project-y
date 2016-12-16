@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_project
-  before_action :set_idea, only: [:show, :edit, :update]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
   def new
     @idea = @project.ideas.build
@@ -31,6 +31,12 @@ class IdeasController < ApplicationController
       flash.now[:alert] = "Idea not saved"
       render "edit"
     end
+  end
+
+  def destroy
+    @idea.destroy
+    flash[:success] = "Deleted!"
+    redirect_to @project
   end
 
   private

@@ -3,5 +3,6 @@
     <h2><%= @idea.title %></h2>
     <p><%= @idea.description %></p>
     <%= link_to "Edit Idea", edit_project_idea_path, class: "button" %>
+    <%= link_to "Delete", project_idea_path, method: :delete, data: {confirm: "Are you sure?"}, class: "button alert" %>
   </div>
 </div>

@@ -5,14 +5,16 @@
       <h2><%= @project.title %></h2>
       <p><%= @project.description %></p>
       <p>Difficulty: <%= @project.level %></p>
-      <%= link_to "Edit project", edit_project_path, class: "button" %>
-      <%= link_to "Delete", @project, method: :delete, data: {confirm: "Are you sure?" }, class: "button alert" %>
-      <%= link_to "New idea", new_project_idea_path(@project), class: "button" %>
+      <div>
+        <%= link_to "Edit project", edit_project_path, class: "button" %>
+        <%= link_to "Delete", @project, method: :delete, data: {confirm: "Are you sure?" }, class: "button alert" %>
+      </div>
     </div>
   </div>
   <div class="large-8 columns">
     <div class="callout">
       <h2>Ideas</h2>
+      <%= link_to "New idea", new_project_idea_path(@project), class: "button" %>
     </div>
     <% @project.ideas.each do |idea| %>
     <div class="callout">
