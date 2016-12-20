@@ -1,8 +1,9 @@
 require "rails_helper"
 
 RSpec.feature "Users can edit ideas" do
-  let(:project) { FactoryGirl.create(:project, title: "React")}
-  let(:idea) { FactoryGirl.create(:idea, project: project, title: "Use rails instead")}
+  let(:user) { FactoryGirl.create(:user) }
+  let(:project) { FactoryGirl.create(:project, title: "React") }
+  let(:idea) { FactoryGirl.create(:idea, project: project, user: user, title: "Use rails instead") }
 
   before do
     visit project_idea_path(project, idea)

@@ -7,7 +7,10 @@ class IdeasController < ApplicationController
   end
 
   def create
+
     @idea = @project.ideas.build(idea_params)
+    @idea.user = current_user
+
     if @idea.save
       flash[:success] = "Idea added successfully"
       redirect_to [@project, @idea]
@@ -52,4 +55,7 @@ class IdeasController < ApplicationController
     def set_idea
       @idea = @project.ideas.find(params[:id])
     end
+
+
+
 end

@@ -1,9 +1,11 @@
 require "rails_helper"
 
 RSpec.describe "User can add ideas to projects" do
-  before do
-    project = FactoryGirl.create(:project, title: "React Graphs")
+  let(:project) { FactoryGirl.create(:project, title: "React Graphs") }
+  let(:user) { FactoryGirl.create(:user)}
 
+  before do
+    login_as(user)
     visit project_path(project)
     click_link "New idea"
   end
@@ -14,6 +16,9 @@ RSpec.describe "User can add ideas to projects" do
     click_button "Save"
 
     expect(page).to have_content "Idea added successfully"
+    within("#idea") do
+      expect(page).to have_content "Author: #{user.email}"
+    end
   end
 
   scenario "with invalid info" do

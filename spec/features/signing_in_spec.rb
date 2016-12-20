@@ -9,12 +9,12 @@ RSpec.feature "Allow users to sign in" do
   end
 
   scenario "with valid credintials" do
-    fill_in "Email", with: "test1@example.com"
-    fill_in "user_password", with: "password"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "password"
 
     click_button "Log in"
 
-    expect(page).to have_content "Signed in successfully"
+    expect(page).to have_content "Signed in successfully."
     expect(page).to have_content "#{user.email}"
   end
 
