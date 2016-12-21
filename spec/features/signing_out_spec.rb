@@ -7,6 +7,7 @@ RSpec.feature "allow users to signout" do
     login_as(user)
     visit "/"
   end
+
   scenario "successfully" do
     click_link "Sign out"
     expect(page).to have_content "Signed out successfully"

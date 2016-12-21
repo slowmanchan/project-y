@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="small-12 medium-6 columns">
+  <div class="small-12 medium-12 large-6 columns">
     <h1>Projects</h1>
     <%= link_to "New project", new_project_path, class: "button" %>
     <table class="actions">
@@ -7,7 +7,7 @@
         <tr>
           <th>Project</th>
           <th>Author</th>
-          <th>Rating</th>
+          <th>Level</th>
           <th>Date added</th>
         </tr>
       </thead>
@@ -15,6 +15,9 @@
         <% @projects.each do |project| %>
         <tr>
           <td><%= link_to project.title, project %></td>
+          <td><%= link_to "Author" %></td>
+          <td><%= project.level %></td>
+          <td><%= time_ago_in_words(project.created_at) %> ago</td>
         </tr>
         <% end %>
       </tbody>
