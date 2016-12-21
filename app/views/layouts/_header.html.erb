@@ -7,9 +7,13 @@
   <div class="top-bar-left">
     <ul class="menu">
       <li class="menu-text">ProjectY</li>
+      <% admins_only do %>
+        <li><%= link_to "Admin", admin_root_path %></li>
+      <% end %>
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Link2" %></li>
       <li><%= link_to "link3" %></li>
+
     </ul>
   </div>
   <div class="top-bar-right">
