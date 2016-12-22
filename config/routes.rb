@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
+  get 'users/edit'
+
+  get 'users/update'
+
   namespace :admin do
     root 'application#index'
     resources :users do
@@ -9,6 +15,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  
+  resources :users
+
   root "projects#index"
   resources :projects do
     resources :ideas
