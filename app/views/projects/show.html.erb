@@ -5,6 +5,7 @@
       <h2><%= @project.title %></h2>
       <p><%= @project.description %></p>
       <p>Difficulty: <%= @project.level %></p>
+      <p>Author: <%= @project.user.email %></p>
       <div>
         <%= link_to "Edit project", edit_project_path, class: "button" %>
         <%= link_to "Delete", @project, method: :delete, data: {confirm: "Are you sure?" }, class: "button alert" %>

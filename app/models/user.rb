@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :projects
+
   scope :excluding_archived, lambda { where(archived_at: nil) }
+
 
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"

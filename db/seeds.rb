@@ -10,11 +10,11 @@ unless User.exists?(email: "admin@example.com")
 end
 
 unless User.exists?(email: "viewer@example.com")
-  User.create!(email: "viewer@example.com", password: "password")
+  @user = User.create!(email: "viewer@example.com", password: "password")
 end
 
-["Reactor", "Railsor", "SNES", "NES", "GENESIS"].each do |name|
-  unless Project.exists?(title: name)
-    Project.create!(title: "#{name}", description: "A sample project about #{name}", level: 1)
-  end
-end
+# ["Reactor", "Railsor", "SNES", "NES", "GENESIS"].each do |name|
+#   unless Project.exists?(title: name)
+#     @user.projects.create!(title: "#{name}", description: "A sample project about #{name}", level: 1)
+#   end
+# end

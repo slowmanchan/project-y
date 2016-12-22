@@ -1,8 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "User can add ideas to projects" do
-  let(:project) { FactoryGirl.create(:project, title: "React Graphs") }
   let(:user) { FactoryGirl.create(:user)}
+
+  let(:project) { FactoryGirl.create(:project, user: user, title: "React Graphs") }
 
   before do
     login_as(user)

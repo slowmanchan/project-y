@@ -3,4 +3,5 @@ class Project < ActiveRecord::Base
   validates :level, presence: true
 
   has_many :ideas, dependent: :delete_all
+  belongs_to :user
 end

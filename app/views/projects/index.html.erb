@@ -15,7 +15,7 @@
         <% @projects.each do |project| %>
         <tr>
           <td><%= link_to project.title, project %></td>
-          <td><%= link_to "Author" %></td>
+          <td><%= link_to project.user.email, project.user %></td>
           <td><%= project.level %></td>
           <td><%= time_ago_in_words(project.created_at) %> ago</td>
         </tr>

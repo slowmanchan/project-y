@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Users can delete ideas" do
   let(:user) { FactoryGirl.create(:user) }
-  let(:project) { FactoryGirl.create(:project, title: "React")}
+  let(:project) { FactoryGirl.create(:project, user: user, title: "React")}
   let(:idea) { FactoryGirl.create(:idea, project: project, user: user, title: "Vue JS")}
 
 

@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.describe "users can delete projects" do
   scenario "successfully" do
-    FactoryGirl.create(:project, title: "Reactor")
+    user = FactoryGirl.create(:user)
+    FactoryGirl.create(:project, user: user, title: "Reactor")
     visit "/"
     click_link "Reactor"
     click_link "Delete"
