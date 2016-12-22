@@ -1,0 +1,7 @@
+<% if user_signed_in? && current_user.likes?(project) %>
+  <%= link_to "Unlike", project_like_path(project), method: :delete, remote: true %>
+  <% else %>
+  <%= link_to "Like", project_like_path(project), method: :post, remote: true %>
+<% end %>
+
+<%= project.likes.count %>

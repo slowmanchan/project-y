@@ -5,9 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :projects
+  has_many :likes
 
   scope :excluding_archived, lambda { where(archived_at: nil) }
 
+  def likes?(project)
+    project.likes.where(user_id: id).any?
+  end
 
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"

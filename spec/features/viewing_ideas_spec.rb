@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "users can view ideas for each project" do
   let(:user) { FactoryGirl.create(:user)}
-  let!(:project) { FactoryGirl.create(:project, user: user, title: "Reactor")}
+  let!(:project) { FactoryGirl.create(:project, user: user,  title: "Reactor")}
   let!(:project2) { FactoryGirl.create(:project, user: user, title: "Jquery", description: "I want it that way")}
   let!(:idea) { FactoryGirl.create(:idea, project: project, title: "Rails", description: "I want it that way", user: user)}
   let!(:idea2) { FactoryGirl.create(:idea, project: project2, title: "Wrongo", description: "Wrongo", user: user)}

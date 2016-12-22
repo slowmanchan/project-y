@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   root "projects#index"
   resources :projects do
+    resource :like, module: :projects
     resources :ideas
   end
 end
