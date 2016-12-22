@@ -7,7 +7,7 @@
         <tr>
           <th>Project</th>
           <th>Author</th>
-          <th>Level</th>
+          <th>Level of Difficulty</th>
           <th>Date added</th>
         </tr>
       </thead>
@@ -16,9 +16,13 @@
         <tr>
           <td><%= link_to project.title, project %></td>
           <td><%= link_to project.user.email, project.user %></td>
-          <td><%= project.level %></td>
+          <td>
+            <% project.level.times do %>
+              <i class="fa fa-chevron-right"></i>
+              <% end %>
+          </td>
           <td><%= time_ago_in_words(project.created_at) %> ago</td>
-          <td id="project_<%= project.id %>_likes"><%= render partial: 'likes', locals: {project: project} %></td>
+          <td id="project_<%= project.id %>_likes"><%= render 'likes', project: project %></td>
         </tr>
         <% end %>
       </tbody>

@@ -1,1 +1,1 @@
-$("#project_<%= @project.id %>_likes").html("<%= j render partial: 'projects/likes', locals: {project: @project} %>");
+$("#project_<%= @project.id %>_likes").html("<%=j render "projects/likes", project: @project %>");
