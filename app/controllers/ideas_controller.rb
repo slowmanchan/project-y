@@ -12,6 +12,10 @@ class IdeasController < ApplicationController
     @idea.user = current_user
 
     if @idea.save
+      (@project.users.uniq - [current_user]).each do |user|
+        Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @idea)
+      end
+
       flash[:success] = "Idea added successfully"
       redirect_to [@project, @idea]
     else

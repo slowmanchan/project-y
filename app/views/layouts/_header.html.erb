@@ -17,8 +17,14 @@
     </ul>
   </div>
   <div class="top-bar-right">
-    <ul class="menu">
+    <ul class="dropdown menu" data-dropdown-menu>
       <% if user_signed_in? %>
+      <li data-behavior="notifications" >
+        <a href="#" data-behavior="notifications-link"><i class="fa fa-bell"></i><span data-behavior="unread-count"></span></a>
+        <ul class="menu">
+          <li data-behavior="notification-items"></li>
+        </ul>
+      </li>
       <li><%= link_to "Settings", edit_user_path(current_user) %></li>
       <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       <li><%= link_to current_user.email %></li>

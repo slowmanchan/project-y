@@ -17,6 +17,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users
+  
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 
   root "projects#index"
   resources :projects do
