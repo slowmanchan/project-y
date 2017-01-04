@@ -9,14 +9,14 @@
         <%= render "likes", project: @project  %>
       </div>
       <p>Author: <%= @project.user.email %></p>
-
+      <p>Needs help?:<% if @project.help %> Could use a hand or 2<% end %></p>
       <div>
         <%= link_to "Edit project", edit_project_path, class: "button" %>
         <%= link_to "Delete", @project, method: :delete, data: {confirm: "Are you sure?" }, class: "button alert" %>
       </div>
     </div>
   </div>
-  
+
   <div class="large-8 columns">
     <div class="callout">
       <h2>Ideas</h2>

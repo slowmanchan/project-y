@@ -4,7 +4,9 @@ class ProjectsController < ApplicationController
   before_action :setup_project, only: [:show, :destroy, :edit, :update]
 
   def index
-    @projects = Project.all
+    @projects = Project.order('created_at DESC')
+    @difficulty = Project.order('level DESC')
+
   end
 
   def new
@@ -50,7 +52,7 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:title, :description, :level)
+      params.require(:project).permit(:title, :description, :level, :help)
     end
 
     def setup_project

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161228091638) do
+ActiveRecord::Schema.define(version: 20170104125848) do
 
   create_table "ideas", force: :cascade do |t|
     t.string   "title"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20161228091638) do
     t.integer  "level"
     t.string   "source"
     t.integer  "user_id"
+    t.boolean  "help"
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"

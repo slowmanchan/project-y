@@ -1,9 +1,15 @@
-<h1>Edit</h1>
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :bio %>
-  <%= f.input :location %>
+<div class="edit-user-form">
+  <div class="row">
+    <div class="column">
+      <h1>Edit</h1>
+      <%= simple_form_for(@user) do |f| %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :bio %>
+      <%= f.input :location %>
 
-  <%= f.button :submit, class: "button"%>
-<% end %>
+      <%= f.button :submit, class: "button"%>
+      <% end %>
+    </div>
+  </div>
+</div>

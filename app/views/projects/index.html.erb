@@ -1,31 +1,78 @@
 <div class="row">
-  <div class="small-12 medium-12 large-6 columns">
+  <div class="small-12 medium-12 columns">
     <h1>Projects</h1>
     <%= link_to "New project", new_project_path, class: "button" %>
-    <table class="actions">
-      <thead>
-        <tr>
-          <th>Project</th>
-          <th>Author</th>
-          <th>Level of Difficulty</th>
-          <th>Date added</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @projects.each do |project| %>
-        <tr>
-          <td><%= link_to project.title, project %></td>
-          <td><%= link_to project.user.email, project.user %></td>
-          <td>
-            <% project.level.times do %>
-              <i class="fa fa-chevron-right"></i>
-              <% end %>
-          </td>
-          <td><%= time_ago_in_words(project.created_at) %> ago</td>
-          <td id="project_<%= project.id %>_likes"><%= render 'likes', project: project %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <ul class="tabs" data-tabs id="example-tabs">
+      <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Latest</a></li>
+      <li class="tabs-title"><a href="#panel2">Difficulty </a></li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="example-tabs">
+      <div class="tabs-panel is-active" id="panel1">
+        <table class="actions">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Description</th>
+              <th>Author</th>
+              <th>Level of Difficulty</th>
+              <th>Need help!</th>
+              <th>Date added</th>
+              <th>Sparks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @projects.each do |project| %>
+            <tr>
+              <td><%= link_to project.title, project %></td>
+              <td><%= project.description %></td>
+              <td><%= link_to project.user.email, project.user %></td>
+              <td>
+                <% project.level.times do %>
+                <i class="fa fa-chevron-right"></i>
+                <% end %>
+              </td>
+              <th><% if project.help %>Yes<% end %></th>
+              <td><%= time_ago_in_words(project.created_at) %> ago</td>
+              <td id="project_<%= project.id %>_likes"><%= render 'likes', project: project %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="tabs-panel" id="panel2">
+        <table class="actions">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Description</th>
+              <th>Author</th>
+              <th>Level of Difficulty</th>
+              <th>Date added</th>
+              <th>Sparks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @difficulty.each do |project| %>
+            <tr>
+              <td><%= link_to project.title, project %></td>
+              <td><%= project.description %></td>
+              <td><%= link_to project.user.email, project.user %></td>
+              <td>
+                <% project.level.times do %>
+                <i class="fa fa-chevron-right"></i>
+                <% end %>
+              </td>
+              <td><%= time_ago_in_words(project.created_at) %> ago</td>
+              <td id="project_<%= project.id %>_likes"><%= render 'likes', project: project %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="tabs-panel" id="panel3">
+
+      </div>
+    </div>
+
   </div>
 </div>

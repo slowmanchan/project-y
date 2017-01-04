@@ -1,6 +1,15 @@
-<h1>Settings</h1>
-<%= link_to "Edit User", [:edit, @user], class: "button" %>
-<h2>Bio</h2>
-<p><%= @user.bio %></p>
-<h2>Location</h2>
-<p><%= @user.location %></p>
+<div class="profile-page">
+  <div class="row">
+    <div class="column">
+      <h1>PROFILE</h1>
+      <div class="callout">
+        <h2>Bio</h2>
+        <p><%= @user.bio %></p>
+      </div>
+      <div class="callout">
+        <h2>Location</h2>
+        <p><%= @user.location %></p>
+      </div>
+    </div>
+  </div>
+</div>

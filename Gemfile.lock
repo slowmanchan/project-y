@@ -120,7 +120,6 @@ GEM
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
     orm_adapter (0.5.0)
-    pg (0.19.0)
     public_suffix (2.0.4)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
@@ -236,7 +235,6 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   omniauth
-  pg
   pundit
   rails (= 4.2.6)
   rspec-rails
@@ -250,4 +248,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.13.6
+   1.13.7

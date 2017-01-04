@@ -2,6 +2,7 @@
 <%= f.input :title %>
 <%= f.input :description %>
 <%= f.input :level, label: "Difficulty Level", collection: 1..5  %>
+<%= f.input :help, label: "Need help?" %>
 
 <%= f.button :submit, class: "button" %>
 <% end %>
