@@ -1,12 +1,16 @@
 .simple-calendar {
   .calendar-heading {
-    a {
+    i {
       font-size: 1.6em;
+    }
+    .button {
+      float: right;
     }
   }
   .calendar-title {
     font-size: 2em;
     font-weight: bold;
+
   }
   .day {
     color: #204056;

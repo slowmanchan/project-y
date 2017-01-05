@@ -3,6 +3,7 @@
     <%= link_to t('simple_calendar.previous', default: '<i class="fa fa-arrow-left"></i>'.html_safe), calendar.url_for_previous_view  %>
     <span class="calendar-title"><%= t('date.abbr_month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: '<i class="fa fa-arrow-right"></i>'.html_safe), calendar.url_for_next_view %>
+    <%= link_to 'new meeting', new_meeting_path, class: "button" %>
   </div>
 
   <table class="table table-striped">

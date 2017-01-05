@@ -2,13 +2,11 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meetings = Meeting.all
+    @meetings = Meeting.where(user_id: current_user.id)
   end
-
 
   def show
   end
-
 
   def new
     @meeting = Meeting.new
@@ -20,6 +18,7 @@ class MeetingsController < ApplicationController
 
   def create
     @meeting = Meeting.new(meeting_params)
+    @meeting.user = current_user
 
     respond_to do |format|
       if @meeting.save

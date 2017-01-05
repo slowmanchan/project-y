@@ -6,7 +6,10 @@ class ProjectsController < ApplicationController
   def index
     @tags = Project.tag_counts_on(:tags)
     @users = User.order("ideas_count desc")
-    @meetings = Meeting.all
+    
+    if user_signed_in?
+      @meetings = Meeting.where(user_id: current_user.id)
+    end
 
     if params[:tag]
       @projects = Project.tagged_with(params[:tag])

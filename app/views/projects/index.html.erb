@@ -70,6 +70,7 @@
         <% end %>
       </ul>
     </div>
+    <% if user_signed_in? %>
     <div class="callout">
       <div class="meetings">
         <h4>Upcoming events</h4>
@@ -81,6 +82,6 @@
         </ul>
       </div>
     </div>
-
+    <% end %>
   </div>
 </div>
