@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105004204) do
+ActiveRecord::Schema.define(version: 20170105122008) do
 
   create_table "ideas", force: :cascade do |t|
     t.string   "title"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20170105004204) do
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,6 +109,7 @@ ActiveRecord::Schema.define(version: 20170105004204) do
     t.text     "bio"
     t.string   "location"
     t.integer  "ideas_count"
+    t.string   "time_zone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -3,11 +3,7 @@
     font-size: 0.8em;
     color: hsl(0%, 0%, 60%);
   }
-  & .banner {
-    color: white;
-    background-color: #204056;
-    padding: 20px;
-  }
+
   #tag_cloud {
     line-height: 1.6em;
 
@@ -44,3 +40,8 @@
 #top-users {
   list-style: none;
 }
+.banner {
+    color: white;
+    background-color: #204056;
+    padding: 20px;
+  }

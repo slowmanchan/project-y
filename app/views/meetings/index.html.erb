@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<%= render "calendar", meetings: @meetings %>
+
+<h1>Listing Meetings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meetings.each do |meeting| %>
+      <tr>
+        <td><%= link_to meeting.name, meeting %></td>
+        <td><%= meeting.start_time.strftime("%^b %e/%y %l:%M %P") %></td>
+        <td><%= meeting.end_time.strftime("%^b %e/%y %l:%M %P") %></td>
+        <td><%= link_to  edit_meeting_path(meeting) do %><i class="fa fa-pencil-square-o"></i><% end %></td>
+        <td><%= link_to meeting, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash-o"></i><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meeting', new_meeting_path %>

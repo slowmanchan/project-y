@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   def index
     @tags = Project.tag_counts_on(:tags)
     @users = User.order("ideas_count desc")
+    @meetings = Meeting.all
 
     if params[:tag]
       @projects = Project.tagged_with(params[:tag])

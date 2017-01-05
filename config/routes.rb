@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meetings
   get 'users/show'
 
   get 'users/edit'

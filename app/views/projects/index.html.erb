@@ -65,13 +65,22 @@
     <div class="callout">
       <h4>Top Users</h4>
       <ul id="top-users">
-      <% @users.each do |user| %>
+        <% @users.each do |user| %>
         <li><%= link_to user.email, user_path(user) %>(<%= user.ideas_count %>)</li>
-      <% end %>
-    </ul>
+        <% end %>
+      </ul>
+    </div>
+    <div class="callout">
+      <div class="meetings">
+        <h4>Upcoming events</h4>
+        <ul>
+          <% @meetings.each do |meeting| %>
+          <li><%= link_to meeting.name, meeting_path(meeting) %> -
+          <%= meeting.start_time.strftime("%b %e/%y %l:%M %P") %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
 
   </div>
-</div>
-</div>
 </div>
