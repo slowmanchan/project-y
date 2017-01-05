@@ -1,3 +1,6 @@
+
+<%= project.likes.count %>
+
 <% if user_signed_in? && current_user.likes?(project) %>
 <%= link_to project_like_path(project), method: :delete, remote: true do %>
 <i class="fa fa-lightbulb-o"></i>
@@ -7,5 +10,3 @@
 <i class="fa fa-lightbulb-o"></i>
 <% end %>
 <% end %>
-
-<%= project.likes.count %>

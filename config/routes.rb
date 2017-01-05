@@ -13,11 +13,14 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :tags, except: :show
+
+  get 'tags/:tag', to: 'projects#index'
 
   devise_for :users
 
   resources :users
-  
+
   resources :notifications do
     collection do
       post :mark_as_read

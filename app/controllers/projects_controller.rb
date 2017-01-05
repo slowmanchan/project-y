@@ -4,9 +4,14 @@ class ProjectsController < ApplicationController
   before_action :setup_project, only: [:show, :destroy, :edit, :update]
 
   def index
-    @projects = Project.order('created_at DESC')
-    @difficulty = Project.order('level DESC')
+    @tags = Project.tag_counts_on(:tags)
+    @users = User.order("ideas_count desc")
 
+    if params[:tag]
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project.order('created_at DESC')
+    end
   end
 
   def new
@@ -49,25 +54,29 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def tag_cloud
+    @tags = Project.tag_counts_on(:tags)
+  end
+
   private
 
-    def project_params
-      params.require(:project).permit(:title, :description, :level, :help)
-    end
+  def project_params
+    params.require(:project).permit(:title, :description, :level, :help, :tag_list)
+  end
 
-    def setup_project
-      @project = Project.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "The project does not exist"
-      redirect_to projects_path
-    end
+  def setup_project
+    @project = Project.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The project does not exist"
+    redirect_to projects_path
+  end
 
-    def sanitize_params
-      @project = @user.projects.new(project_params)
-    end
+  def sanitize_params
+    @project = @user.projects.new(project_params)
+  end
 
-    def set_user
-      @user = current_user
-    end
+  def set_user
+    @user = current_user
+  end
 
 end

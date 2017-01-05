@@ -3,5 +3,5 @@ class Idea < ActiveRecord::Base
   validates :description, presence: true
 
   belongs_to :project
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
 end

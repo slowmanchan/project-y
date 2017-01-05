@@ -8,6 +8,9 @@
       <div id="project_<%= @project.id %>_likes">
         <%= render "likes", project: @project  %>
       </div>
+      <% @project.tag_list.each do |tag| %>
+        <span class="label"><%= tag %></span>
+      <% end %>
       <p>Author: <%= @project.user.email %></p>
       <p>Needs help?:<% if @project.help %> Could use a hand or 2<% end %></p>
       <div>

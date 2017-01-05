@@ -1,3 +1,46 @@
-// Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.projects {
+  time {
+    font-size: 0.8em;
+    color: hsl(0%, 0%, 60%);
+  }
+  & .banner {
+    color: white;
+    background-color: #204056;
+    padding: 20px;
+  }
+  #tag_cloud {
+    line-height: 1.6em;
+
+    .s {
+      font-size: 0.8em;
+    }
+    .m {
+      font-size: 1.2em;
+
+    }
+    .l {
+      font-size: 1.8em;
+
+    }
+  }
+}
+.down-arrow {
+  height: 0;
+  width: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 30px solid #204056;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.secondary-projects-panel {
+  text-align: center;
+  & .likes-icon {
+    font-size: 3em;
+  }
+
+}
+#top-users {
+  list-style: none;
+}

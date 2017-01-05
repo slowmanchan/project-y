@@ -50,7 +50,7 @@ group :development do
 end
 
 group :production do
-  
+
 end
 
 gem 'devise'
@@ -60,3 +60,4 @@ gem 'omniauth'
 gem 'simple_form'
 gem 'foundation-rails', "6.3.0.0"
 gem 'jquery-turbolinks'
+gem 'acts-as-taggable-on'
