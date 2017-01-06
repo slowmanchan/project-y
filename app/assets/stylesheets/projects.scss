@@ -35,7 +35,6 @@
   & .likes-icon {
     font-size: 3em;
   }
-
 }
 #top-users {
   list-style: none;
@@ -44,4 +43,17 @@
     color: white;
     background-color: #204056;
     padding: 20px;
+}
+.primary-project-panel {
+  background-color: hsl(0%, 0%, 90%);
+  border: none;
+}
+.secondary-project-panel {
+  background-color: $steel-blue;
+  color: white;
+  text-align: center;
+  i {
+    font-size: 1.5em;
+    color: #46c9b6;
   }
+}

@@ -1,0 +1,17 @@
+<p>
+  <strong>Name:</strong>
+  <%= @meeting.name %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @meeting.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @meeting.end_time %>
+</p>
+<p>
+
+<%= link_to @meeting, method: :delete, data: {confirm: "Are you sure?"} do %><i class="fa fa-trash-o"></i><% end %>

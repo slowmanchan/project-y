@@ -1,13 +1,25 @@
-<%= simple_form_for(@meeting) do |f| %>
+<div class="meeting-form">
+  <%= simple_form_for(@meeting) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.input :name %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        <%= f.input :start_time %>
+      </div>
+      <div class="small-6 columns">
+        <%= f.input :end_time %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
-<% end %>
+  <% end %>
+</div>

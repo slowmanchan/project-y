@@ -1,0 +1,19 @@
+/*
+*= require foundation_and_overrides
+*= require simple_calendar
+*/
+
+@import "variables";
+@import "foundation_and_overrides";
+@import '_settings.scss';
+@import "calendar";
+@import "ideas";
+@import "likes";
+@import "meetings";
+@import "notifications";
+@import "projects";
+@import "users";
+
+a {
+  color: #204056;
+}

@@ -1,8 +1,7 @@
 <div class="callout">
   <div class="calendar">
     <%= month_calendar events: meetings do |date, meetings| %>
-    <%= date %>
-
+    <div id="calendar-day-label"><%= date.strftime("%d") %></div>
     <% meetings.each do |meeting| %>
     <div>
       <%= link_to meeting.name, meeting_path(meeting)%>
