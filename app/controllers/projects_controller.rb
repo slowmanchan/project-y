@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   def index
     @tags = Project.tag_counts_on(:tags)
     @users = User.order("ideas_count desc")
-    
+
     if user_signed_in?
       @meetings = Meeting.where(user_id: current_user.id)
     end
@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-
+    # @idea = @project.ideas.build
   end
 
   def update

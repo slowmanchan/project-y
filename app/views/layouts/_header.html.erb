@@ -4,6 +4,7 @@
 </div>
 
 <div class="top-bar" id="site-nav">
+  <div class="container">
   <div class="top-bar-left">
     <ul class="menu">
       <li class="menu-text">ProjectY</li>
@@ -32,9 +33,10 @@
       </ul>
       </li>
       <% else %>
-      <li><%= link_to "Sign in", new_user_session_path %></li>
-      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><%= link_to "Sign in", new_user_session_path  %></li>
+      <li><%= link_to "Sign up", new_user_registration_path, class: 'button alert' %></li>
       <% end %>
     </ul>
   </div>
+</div>
 </div>

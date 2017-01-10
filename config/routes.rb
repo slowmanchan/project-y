@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   root "projects#index"
   resources :projects do
+    resource :group, module: :projects
     resource :like, module: :projects
     resources :ideas
   end

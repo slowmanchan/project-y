@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
 
   acts_as_taggable
 
+  has_many :groups
   has_many :likes
   has_many :ideas, dependent: :delete_all
   belongs_to :user

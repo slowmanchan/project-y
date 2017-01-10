@@ -1,37 +1,47 @@
 <% @title = "Pizzaz - Projects - ProjectY" %>
-<div class="row">
-  <div class="large-4 columns">
-    <div class="callout large">
-      <h2><%= @project.title %></h2>
-      <p><%= @project.description %></p>
-      <p>Difficulty: <%= @project.level %></p>
-      <div id="project_<%= @project.id %>_likes">
-        <%= render "likes", project: @project  %>
+<div class="project">
+  <div class="row">
+    <div class="small-12 large-6 columns">
+      <div class="callout large project-heading">
+        <h3><%= @project.title %></h3>
+        <p class="author">Creator: <%= link_to @project.user.email, user_path(@project.user) %></p>
+        <p class="members">Members: <% @project.groups.each do |group| %>
+          <%= link_to group.user.email, user_path(group.user) %>
+          <% end %>
+        </p>
+        <p><%= @project.description %></p>
+        <p class="label success">Difficulty: <% @project.level.times do %><i class="fa fa-star"></i><%end %></p>
+        <div class="group-members" id="project_<%= @project.id %>_groups">
+          <%= render "groups", project: @project %>
+        </div>
+        <div class="likes" id="project_<%= @project.id %>_likes">
+          <%= render "likes", project: @project  %>
+        </div>
+        <div class="tags">
+          <% @project.tag_list.each do |tag| %>
+          <span class="label"><%= tag %></span>
+          <% end %>
+        </div>
+        <p><% if @project.help %><span class='label alert'>Help!</span><% end %></p>
+        <div>
+          <%= link_to "Edit project", edit_project_path, class: "button" %>
+          <%= link_to "Delete", @project, method: :delete, data: {confirm: "Are you sure?" }, class: "button alert" %>
+        </div>
       </div>
-      <% @project.tag_list.each do |tag| %>
-        <span class="label"><%= tag %></span>
-      <% end %>
-      <p>Author: <%= @project.user.email %></p>
-      <p>Needs help?:<% if @project.help %> Could use a hand or 2<% end %></p>
-      <div>
-        <%= link_to "Edit project", edit_project_path, class: "button" %>
-        <%= link_to "Delete", @project, method: :delete, data: {confirm: "Are you sure?" }, class: "button alert" %>
+    </div>
+    <div class="ideas-section">
+      <div class="small-12 large-6 columns">
+        <h4>Ideas<%= link_to "New idea", new_project_idea_path(@project), class: "button" %>
+        </h4>
+        <% @project.ideas.each do |idea| %>
+        <div class="callout idea">
+          <h5><%= link_to idea.title, [@project, idea] %></h5>
+          <p><%= link_to idea.user.email, user_path(idea.user) %></p>
+          <p><%= idea.description %></p>
+        </div>
+        <% end %>
       </div>
     </div>
-  </div>
 
-  <div class="large-8 columns">
-    <div class="callout">
-      <h2>Ideas</h2>
-      <%= link_to "New idea", new_project_idea_path(@project), class: "button" %>
-    </div>
-    <% @project.ideas.each do |idea| %>
-    <div class="callout">
-      <h4><%= link_to idea.title, [@project, idea] %></h4>
-      <h5><%= link_to idea.user.email, user_path(idea.user) %></h5>
-      <p><%= idea.description %></p>
-    </div>
-    <% end %>
   </div>
-
 </div>

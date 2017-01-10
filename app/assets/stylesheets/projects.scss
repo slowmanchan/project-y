@@ -26,23 +26,31 @@
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 30px solid #204056;
-  margin-left: 30px;
+  margin-left: 60px;
   margin-bottom: 20px;
 }
 
 .secondary-projects-panel {
   text-align: center;
+
   & .likes-icon {
     font-size: 3em;
   }
+}
+.callout.secondary-project-panel {
+  margin: 0;
+}
+.callout.primary-project-panel {
+  padding: 0;
+  padding-left: 10px;
 }
 #top-users {
   list-style: none;
 }
 .banner {
-    color: white;
-    background-color: #204056;
-    padding: 20px;
+  color: white;
+  background-color: #204056;
+  padding: 40px;
 }
 .primary-project-panel {
   background-color: hsl(0%, 0%, 90%);
@@ -53,7 +61,52 @@
   color: white;
   text-align: center;
   i {
-    font-size: 1.5em;
+    font-size: 1em;
     color: #46c9b6;
+  }
+}
+
+.project-heading {
+  margin-top: 20px;
+  background-color: $steel-blue;
+  color: white;
+
+  h3 {
+    color:  #46c9b6;
+  }
+
+  .author a {
+    color: white;
+    font-style: italic;
+  }
+
+}
+.likes, .group-members {
+  float: right;
+  font-size: 2em;
+  color: #ffbf00;
+  padding: 10px;
+  border-radius: 50%;
+  a {
+    color: #ffbf00;
+  }
+}
+.group-members {}
+.ideas-section {
+  margin: 20px;
+  h4 a {
+    float:right;
+  }
+  .idea {
+    border: 4px solid $steel-blue;
+
+    h5 {
+      font-weight: bold;
+    }
+  }
+}
+.members {
+  a {
+    color: white;
   }
 }

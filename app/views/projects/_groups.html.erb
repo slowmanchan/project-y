@@ -1,0 +1,6 @@
+<%= project.groups.count %>
+<% if user_signed_in? && current_user.groups?(project) %>
+<%= link_to project_group_path(project), method: :delete, remote: true do %><i class="fa fa-users"></i><% end %>
+<% else %>
+<%= link_to project_group_path(project), method: :post, remote: true do %><i class="fa fa-users"></i><% end %>
+<% end %>

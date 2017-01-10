@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
+  :recoverable, :rememberable, :trackable, :validatable
+  has_many :groups
   has_many :meetings
   has_many :projects
   has_many :ideas
@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     project.likes.where(user_id: id).any?
   end
 
+  def groups?(project)
+    project.groups.where(user_id: id).any?
+  end
+  
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"
   end
