@@ -1,0 +1,4 @@
+$("#meeting_<%= @meeting.id %>").replaceWith("<%= j render "meeting", meeting: @meeting %>");
+$("#meeting-on-calendar<%= @meeting.id %>").replaceWith("<%= j link_to @meeting.name, meeting_path(@meeting), data: {open: "meeting"}, remote: true %>");
+
+$("#meeting").foundation('close');

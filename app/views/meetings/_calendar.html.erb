@@ -3,8 +3,13 @@
     <%= month_calendar events: meetings do |date, meetings| %>
     <div id="calendar-day-label"><%= date.strftime("%d") %></div>
     <% meetings.each do |meeting| %>
-    <div class="meeting">
-      <%= link_to meeting.name, meeting_path(meeting), data: {open: "meeting"}, remote: true%>
+    <div>
+      <div id="meeting-on-calendar<%= meeting.id %>">
+        <%= link_to truncate(meeting.name, length: 15), meeting_path(meeting),
+                    data: {open: "meeting"},
+                    class: "label",
+                    remote: true %>
+      </div>
     </div>
     <% end %>
     <% end %>

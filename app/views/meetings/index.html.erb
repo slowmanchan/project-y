@@ -25,13 +25,9 @@
             </tr>
           </thead>
 
-          <tbody>
+          <tbody id="meeting_list">
             <% @meetings.each do |meeting| %>
-            <tr>
-              <td><%= link_to meeting.name, meeting, data: {open: "meeting"}, remote: true %></td>
-              <td><%= meeting.start_time.strftime("%^b %e/%y %l:%m %p") %></td>
-              <td><%= meeting.end_time.strftime("%^b %e/%y %l:%m %p") %></td>
-            </tr>
+              <%= render meeting %>
             <% end %>
           </tbody>
         </table>

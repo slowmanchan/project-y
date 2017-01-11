@@ -1,0 +1,2 @@
+module Ideas::IdeaLikesHelper
+end

@@ -1,11 +1,16 @@
 <div class="meeting-form">
-  <%= simple_form_for(@meeting) do |f| %>
+  <%= simple_form_for(@meeting, remote: true) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <div class="row">
       <div class="small-12 columns">
         <%= f.input :name %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.input :notes %>
       </div>
     </div>
     <div class="row">
@@ -19,7 +24,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit%>
   </div>
   <% end %>
 </div>

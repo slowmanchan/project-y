@@ -1,6 +1,7 @@
 class Projects::GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :setup_project
+
   def create
     @project.groups.where(user_id: current_user.id).first_or_create
 

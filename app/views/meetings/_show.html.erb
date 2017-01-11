@@ -3,6 +3,13 @@
   <%= @meeting.name %>
 </p>
 
+<% if @meeting.notes %>
+<p>
+  <strong>Notes:</strong>
+  <%= @meeting.notes %>
+</p>
+<% end %>
+
 <p>
   <strong>Start time:</strong>
   <%= @meeting.start_time %>
@@ -14,4 +21,6 @@
 </p>
 <p>
 
-<%= link_to @meeting, method: :delete, data: {confirm: "Are you sure?"} do %><i class="fa fa-trash-o"></i><% end %>
+
+<%= link_to @meeting, method: :delete, data: {confirm: "Are you sure?"}, remote: true do %><i class="fa fa-trash-o"></i><% end %>
+<%= link_to edit_meeting_path(@meeting), remote: true do %><i class="fa fa-pencil-square-o"></i><% end %>

@@ -31,13 +31,14 @@
     </div>
     <div class="ideas-section">
       <div class="small-12 large-6 columns">
-        <h4>Ideas<%= link_to "New idea", new_project_idea_path(@project), class: "button" %>
+        <h4>Ideas [<%= @project.ideas.count %>]<%= link_to "New idea", new_project_idea_path(@project), class: "button" %>
         </h4>
         <% @project.ideas.each do |idea| %>
         <div class="callout idea">
           <h5><%= link_to idea.title, [@project, idea] %></h5>
-          <p><%= link_to idea.user.email, user_path(idea.user) %></p>
+          <p><%= link_to idea.user.email, user_path(idea.user) %> <%= time_ago_in_words(idea.created_at) %> ago</p>
           <p><%= idea.description %></p>
+
         </div>
         <% end %>
       </div>

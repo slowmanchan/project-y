@@ -23,8 +23,8 @@ class MeetingsController < ApplicationController
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
-        format.json { render :show, status: :created, location: @meeting }
+        format.html { redirect_to meetings_path, notice: 'Meeting was successfully created.' }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
@@ -35,8 +35,8 @@ class MeetingsController < ApplicationController
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully updated.' }
-        format.json { render :show, status: :ok, location: @meeting }
+        format.html { redirect_to 'index', notice: 'Meeting was successfully updated.' }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class MeetingsController < ApplicationController
     @meeting.destroy
     respond_to do |format|
       format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
     end
   end
 
@@ -59,6 +59,6 @@ class MeetingsController < ApplicationController
     end
 
     def meeting_params
-      params.require(:meeting).permit(:name, :start_time, :end_time)
+      params.require(:meeting).permit(:name, :start_time, :end_time, :notes)
     end
 end

@@ -35,7 +35,7 @@
                 <i class="fa fa-star"></i>
                 <% end %>
               </p>
-              <p>ideas: <%= project.ideas.count %></p>
+              <p id="project_<%= project.id %>_groups"><%= render 'groups', project: project %></p>
               <p class="likes-icon" id="project_<%= project.id %>_likes"><%= render 'likes', project: project %></p>
             </div>
           </div>

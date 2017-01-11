@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :ideas
   has_many :likes
+  has_many :idea_likes
   has_many :notifications, foreign_key: :recipient_id
 
   scope :excluding_archived, lambda { where(archived_at: nil) }
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
   def groups?(project)
     project.groups.where(user_id: id).any?
   end
-  
+
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"
   end
