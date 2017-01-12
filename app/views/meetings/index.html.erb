@@ -1,44 +1,13 @@
-<div class="banner">
-  <div class="row">
-    <div class="small-12 small-8 columns">
-      <h1>PLANNER</h1>
-    </div>
-  </div>
-</div>
-<div class="down-arrow">
-</div>
-
+<%= render 'banner' %>
 <div class="row">
   <div id="meetings_calendar" class="small-12 large-8 columns">
     <%= render "calendar", meetings: @meetings %>
   </div>
 
   <div class="meetings-index">
-      <div class="small-12 large-4 columns">
-        <div class="callout">
-        <table>
-          <thead>
-            <tr>
-              <th>name</th>
-              <th>start time</th>
-              <th>end time</th>
-            </tr>
-          </thead>
-
-          <tbody id="meeting_list">
-            <% @meetings.each do |meeting| %>
-              <%= render meeting %>
-            <% end %>
-          </tbody>
-        </table>
-        <br>
-      </div>
+    <div class="small-12 large-4 columns">
+      <%= render 'meetings' %>
     </div>
   </div>
-</div>
-
-<div class="reveal" id="meeting" data-reveal>
-  <button class="close-button" data-close type="button">
-    <span>&times;</span>
-  </button>
+  <%= render 'reveal' %>
 </div>

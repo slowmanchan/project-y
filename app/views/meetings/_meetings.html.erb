@@ -1,0 +1,17 @@
+<div class="callout">
+  <table>
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>start time</th>
+        <th>end time</th>
+      </tr>
+    </thead>
+    <tbody id="meeting_list">
+      <% @meetings.each do |meeting| %>
+      <%= render meeting %>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>

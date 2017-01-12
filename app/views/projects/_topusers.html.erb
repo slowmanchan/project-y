@@ -1,0 +1,8 @@
+<div class="callout top-users-panel">
+  <h4>Top Users</h4>
+  <ul id="top-users">
+    <% users.each do |user| %>
+    <li><%= gravatar_for(user, size: 30) %><%= link_to user.email, user_path(user) %><span id="user-count"><%= user.ideas_count %></span></li>
+    <% end %>
+  </ul>
+</div>

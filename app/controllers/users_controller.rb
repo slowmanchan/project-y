@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def show
-    @projects = Project.where(user_id: current_user.id)
+    @projects = Project.where(user_id: current_user.id).order('created_at Desc')
   end
 
   def edit

@@ -49,6 +49,9 @@
 .primary-project-panel {
   background-color: hsl(0%, 0%, 90%);
   border: none;
+  p:first-child {
+    font-weight: bold;
+  }
 }
 .secondary-project-panel {
   background-color: $steel-blue;
@@ -108,4 +111,25 @@
 }
 .project {
   background-color: $steel-blue;
+}
+.top-users-panel {
+  background-color: $steel-blue;
+  color: white;
+
+  h4 {
+    color: #ffbf00;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  a {
+    padding-left: 5px;
+    color:#46c9b6 ;
+  }
+  li {
+
+    margin-bottom: 4px;
+  }
+  #user-count {
+    float: right;
+  }
 }

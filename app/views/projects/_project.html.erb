@@ -1,0 +1,32 @@
+<% @projects.each do |project| %>
+<div class="project-panel">
+  <div class="callout primary-project-panel">
+    <div class='row'>
+      <div class="columns small-9">
+        <p><%= link_to project.title, project %></p>
+        <p><%= truncate(project.description, length: 100) %></p>
+        <p>
+          <%= link_to project.user.email, project.user %>
+          |
+          <time><%= time_ago_in_words(project.created_at) %>
+            ago</time>
+          <% if project.help %>
+          <span class="alert label">Need help</span><% end %>
+        </p>
+        <p><%= raw(project.tag_list.map { |t| link_to t, tag_path(t), class: "label"}.join(' ')) %></p>
+      </div>
+
+      <div class="columns small-3">
+        <div class="callout secondary-project-panel">
+          <p><% project.level.times do %>
+            <i class="fa fa-star"></i>
+            <% end %>
+          </p>
+          <p id="project_<%= project.id %>_groups"><%= render 'groups', project: project %></p>
+          <p class="likes-icon" id="project_<%= project.id %>_likes"><%= render 'likes', project: project %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="callout top-users-panel">
+  <div id="tag_cloud">
+    <h4>Popular tags</h4>
+    <% tag_cloud Project.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: 'label' %>
+    <% end %>
+  </div>
+</div>

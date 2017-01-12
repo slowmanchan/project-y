@@ -25,8 +25,9 @@
         </ul>
       </li>
 
-      <li><%= link_to current_user.email, current_user %>
+      <li><%= link_to current_user.email  %>
       <ul class="menu">
+        <li><%= link_to "Profile", user_path(current_user) %></li>
         <li><%= link_to "Planner", meetings_path %></li>
         <li><%= link_to "Settings", edit_user_path(current_user) %></li>
         <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
