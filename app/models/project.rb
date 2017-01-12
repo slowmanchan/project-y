@@ -9,4 +9,5 @@ class Project < ActiveRecord::Base
   has_many :ideas, dependent: :delete_all
   belongs_to :user
   has_many :users, through: :ideas
+  has_many :roles, dependent: :delete_all
 end

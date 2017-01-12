@@ -19,5 +19,18 @@
         <p><%= @user.location %></p>
       </div>
       </div>
+    <div class="small-12 columns">
+      <div class="callout">
+
+        <h2>My projects</h2>
+        <ul>
+        <% @projects.each do |project| %>
+        <li><%= project.title %> | Posted: <%= time_ago_in_words(project.created_at) %> ago</li>
+        <% end %>
+      </ul>
+      </div>
+
+
+    </div>
   </div>
 </div>

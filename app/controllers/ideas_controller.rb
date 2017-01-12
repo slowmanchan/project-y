@@ -12,6 +12,8 @@ class IdeasController < ApplicationController
     @idea.user = current_user
 
     if @idea.save
+      set_role
+
       (@project.users.uniq - [current_user]).each do |user|
         Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @idea)
       end
@@ -28,9 +30,13 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    authorize @idea, :update?
   end
 
   def update
+
+    authorize @idea, :update?
+
     if @idea.update(idea_params)
       flash[:success] = "Idea edited successfully"
       redirect_to [@project, @idea]
@@ -41,6 +47,8 @@ class IdeasController < ApplicationController
   end
 
   def destroy
+    authorize @idea, :destroy?
+
     @idea.destroy
     flash[:success] = "Deleted!"
     redirect_to @project
@@ -60,6 +68,11 @@ class IdeasController < ApplicationController
       @idea = @project.ideas.find(params[:id])
     end
 
-
+    def set_role
+      @role = @idea.roles.new
+      @role.user_id = current_user.id
+      @role.role = 'manager'
+      @role.save
+    end
 
 end

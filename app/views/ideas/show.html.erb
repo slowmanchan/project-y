@@ -4,8 +4,11 @@
     <p><%= @idea.description %></p>
     <p>Author: <%= @idea.user.email %></p>
     <p>Created: <%= time_ago_in_words(@idea.created_at) %> ago</p>
+    <% if policy(@idea).update? %>
     <%= link_to "Edit Idea", edit_project_idea_path, class: "button" %>
+    <% end %>
+    <% if policy(@idea).destroy? %>
     <%= link_to "Delete", project_idea_path, method: :delete, data: {confirm: "Are you sure?"}, class: "button alert" %>
-
+    <% end %>
   </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111132126) do
+ActiveRecord::Schema.define(version: 20170112115802) do
 
   create_table "groups", force: :cascade do |t|
     t.integer  "user_id"
@@ -87,6 +87,18 @@ ActiveRecord::Schema.define(version: 20170111132126) do
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
+
+  create_table "roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "role"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "idea_id"
+  end
+
+  add_index "roles", ["project_id"], name: "index_roles_on_project_id"
+  add_index "roles", ["user_id"], name: "index_roles_on_user_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

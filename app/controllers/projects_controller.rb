@@ -24,7 +24,10 @@ class ProjectsController < ApplicationController
 
   def create
     @project = @user.projects.build(project_params)
+
     if @project.save
+      set_role
+
       flash[:success] = "Your project is alive!"
       redirect_to @project
     else
@@ -34,13 +37,14 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    authorize @project, :update?
   end
 
   def show
-    # @idea = @project.ideas.build
   end
 
   def update
+    authorize @project, :update?
     if @project.update(project_params)
       flash[:success] = "Project saved!"
       redirect_to @project
@@ -51,6 +55,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    authorize @project, :destroy?
 
     @project.destroy
 
@@ -81,6 +86,13 @@ class ProjectsController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def set_role
+    @role = @project.roles.new
+    @role.role = "manager"
+    @role.user_id = current_user.id
+    @role.save
   end
 
 end

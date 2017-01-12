@@ -24,12 +24,18 @@
         </div>
         <p><% if @project.help %><span class='label alert'>Help!</span><% end %></p>
         <div>
+          <% if policy(@project).update? %>
           <%= link_to "Edit project", edit_project_path, class: "button" %>
+          <% end %>
+          <% if policy(@project).destroy? %>
           <%= link_to "Delete", @project, method: :delete, data: {confirm: "Are you sure?" }, class: "button alert" %>
+          <% end %>
         </div>
+
       </div>
-    </div>
-    <div class="ideas-section">
+    </div> 
+
+      <div class="ideas-section">
       <div class="small-12 large-6 columns">
         <h4>Ideas [<%= @project.ideas.count %>]<%= link_to "New idea", new_project_idea_path(@project), class: "button" %>
         </h4>
