@@ -1,28 +1,43 @@
-<div class="row">
-  <div class="small-12 medium-4 large-4 columns">
-    <div class="inbox">
-      <div class="callout">
-        <h5>Inbox</h5>
+<div class="inbox-box">
+  <div class="row">
+    <div class="small-12 medium-4 large-4 columns">
+      <div class="conversations">
         <ul>
+          <li>
+            <h4>Chats</h4>
+          </li>
           <% @conversations.each do |conversation| %>
             <% user_status = current_user.id == conversation.sender.id ? conversation.recipient : conversation.sender %>
             <li>
-              <%= gravatar_for(user_status, size: 40) %>
-              <%= link_to user_status.email, conversation_messages_path(conversation), remote: true %>
+              <%= link_to conversation_messages_path(conversation), remote: true do %>
+                <%= gravatar_for(user_status, size: 30) %>
+                <span> <%= user_status.email %></span>
+              <%end%>
             </li>
           <% end %>
         </ul>
       </div>
     </div>
-  </div>
-  <div class="small-12 medium-8 large-8 columns">
-    <div id="inbox-messages">
+    <div class="small-12 medium-8 large-8 columns">
+      <div id="inbox-messages">
+        <div class="callout help-box">
+          <p>click a conversation or start a new one</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<h2>Users</h2>
-<% @users.each do |user| %>
-  <% if user.id != current_user.id %>
-    <%= user.email %><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
-  <% end %>
-<% end %>
+<div class="row">
+  <div class="users-panel">
+    <h5>Users</h5>
+    <ul>
+      <% @users.each do |user| %>
+        <% if user.id != current_user.id %>
+          <li>
+            <%= gravatar_for(user, size: 30) %>
+            <%= user.email %>
+            <%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>

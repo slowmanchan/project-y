@@ -21,10 +21,18 @@
     }
 
     p {
+        overflow-wrap: break-word;
         margin: 0;
     }
 
     & .callout {
         padding: 7px;
+    }
+}
+
+.message-form {
+    input {
+        position: relative;
+        bottom: 10px;
     }
 }

@@ -1,3 +1,39 @@
 // Place all the styles related to the Conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.inbox-box {
+    height: 600px;
+    background-color: hsl(0,0, 60%);
+
+    .help-box {}
+}
+
+#inbox-messages {}
+
+.conversations {
+    height: 600px;
+    overflow-y: scroll;
+    background-color: hsl(0, 0, 90%);
+
+    ul {
+        list-style-position: inside;
+        margin: 0;
+    }
+
+    a {
+        display: inline-block;
+        width: 100%;
+        padding: 10px;
+
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+    }
+
+    h4 {
+        background-color: hsl(0, 0, 80%);
+        padding: 10px;
+    }
+}

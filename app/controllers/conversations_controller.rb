@@ -8,7 +8,8 @@ class ConversationsController < ApplicationController
       current_user.id,
       current_user.id
     ).order('created_at DESC')
-end
+    @message = Message.new
+  end
 
   def create
     @conversation = Conversation.create!(conversation_params)
