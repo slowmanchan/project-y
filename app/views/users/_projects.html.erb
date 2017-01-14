@@ -1,0 +1,15 @@
+<ul>
+  <% projects.each do |project| %>
+    <div class="callout">
+      <li><%= link_to project.title, project %>
+        | Posted:
+      <%= time_ago_in_words(project.created_at) %>
+        ago</li>
+      <% project.tag_list.each do |tag| %>
+        <li class="label">
+          <%= tag %>
+        </li>
+      <% end %>
+    </div>
+  <% end %>
+</ul>

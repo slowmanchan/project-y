@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="small-12 medium-4 large-4 columns">
+    <div class="inbox">
+      <div class="callout">
+        <h5>Inbox</h5>
+        <ul>
+          <% @conversations.each do |conversation| %>
+            <% user_status = current_user.id == conversation.sender.id ? conversation.recipient : conversation.sender %>
+            <li>
+              <%= gravatar_for(user_status, size: 40) %>
+              <%= link_to user_status.email, conversation_messages_path(conversation), remote: true %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="small-12 medium-8 large-8 columns">
+    <div id="inbox-messages">
+    </div>
+  </div>
+</div>
+<h2>Users</h2>
+<% @users.each do |user| %>
+  <% if user.id != current_user.id %>
+    <%= user.email %><%= link_to 'Message me', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
+  <% end %>
+<% end %>

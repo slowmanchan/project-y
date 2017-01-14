@@ -1,9 +1,8 @@
 <%= render 'banner' %>
 <div class="row">
-  <div id="meetings_calendar" class="small-12 large-8 columns">
+  <div class="small-12 large-8 columns" id="meetings_calendar">
     <%= render "calendar", meetings: @meetings %>
   </div>
-
   <div class="meetings-index">
     <div class="small-12 large-4 columns">
       <%= render 'meetings' %>

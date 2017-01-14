@@ -2,7 +2,6 @@
 *= require foundation_and_overrides
 *= require simple_calendar
 */
-
 @import "variables";
 @import "foundation_and_overrides";
 @import '_settings.scss';
@@ -15,14 +14,16 @@
 @import "users";
 @import "header";
 @import "footer";
+@import "messages";
 
 a {
-  color: #204056;
+    color: #204056;
 }
+
 .container {
-  margin: 0 40px;
+    margin: 0 40px;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }

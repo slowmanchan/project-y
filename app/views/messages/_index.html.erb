@@ -1,0 +1,20 @@
+<div class="callout">
+  <div id="messages-box">
+    <div id="message">
+      <% @messages.each do |message| %>
+        <%= render 'message', message: message %>
+      <% end %>
+    </div>
+    <%= simple_form_for([@conversation, @message], remote: true, html: {id: 'message-form'}) do |f| %>
+      <div class="row collapse">
+        <div class="small-9 columns">
+          <%= f.input :body, placeholder: 'Enter your message', as: 'string', label: false %>
+          <%= f.hidden_field :user_id, value: current_user.id  %>
+        </div>
+        <div class="small-3 columns">
+          <%= f.submit class: 'button postfix'%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

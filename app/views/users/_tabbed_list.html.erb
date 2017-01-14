@@ -1,0 +1,13 @@
+<ul class="tabs" data-tabs id="projects-tabs">
+  <li class="tabs-title is-active">
+    <a href="#projects">Projects (<%= projects.count %>)</a>
+  </li>
+  <li class="tabs-title">
+    <a href="#overview">Over</a>
+  </li>
+</ul>
+<div class="tabs-content" data-tabs-content="projects-tabs">
+  <div class="tabs-panel is-active" id="projects">
+    <%= render "projects", projects: projects %>
+  </div>
+</div>

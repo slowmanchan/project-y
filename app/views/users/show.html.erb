@@ -1,40 +1,10 @@
 <div class="profile-page">
   <div class="row">
-    <div class="small-12 medium-4 large-4 columns">
-      <div class="callout">
-        <h2><%= gravatar_for @user, size: 400 %></h2>
-      </div>
-      <div class="callout">
-        <h2>Bio</h2>
-        <p><%= @user.bio %></p>
-      </div>
-      <div class="callout">
-        <h2>Location</h2>
-        <p><%= @user.location %></p>
-      </div>
+    <div class="small-12 medium-3 large-3 columns">
+      <%= render 'user_info', user: @user %>
     </div>
-    <div class="small-12 medium-8 large-8 columns">
-      <ul class="tabs" data-tabs id="projects-tabs">
-        <li class="tabs-title is-active"><a href="#projects">Projects (<%= @projects.count %>)</a></li>
-        <li class="tabs-title"><a href="#overview">Over</a></li>
-      </ul>
-      <div class="tabs-content" data-tabs-content="projects-tabs">
-        <div class="tabs-panel is-active" id="projects">
-          <ul>
-            <% @projects.each do |project| %>
-            <div class="callout">
-              <li><%= link_to project.title, project %> | Posted: <%= time_ago_in_words(project.created_at) %> ago</li>
-              <% project.tag_list.each do |tag| %>
-              <li class="label">
-              <%= tag %>
-            </li>
-              <% end %>
-            </div>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-
+    <div class="small-12 medium-9 large-9 columns">
+      <%= render 'tabbed_list', projects: @projects %>
     </div>
   </div>
 </div>

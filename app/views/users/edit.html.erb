@@ -3,12 +3,13 @@
     <div class="column">
       <h1>Edit</h1>
       <%= simple_form_for(@user) do |f| %>
-      <%= f.input :email %>
-      <%= f.input :password %>
-      <%= f.input :bio %>
-      <%= f.input :location %>
-
-      <%= f.button :submit, class: "button"%>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :user_name %>
+        <%= f.input :full_name %>
+        <%= f.input :bio %>
+        <%= f.input :location %>
+        <%= f.button :submit, class: "button"%>
       <% end %>
     </div>
   </div>

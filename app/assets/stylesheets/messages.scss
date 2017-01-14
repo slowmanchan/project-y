@@ -1,0 +1,30 @@
+.reciever {
+    width: 56%;
+    float: left;
+    color: white;
+    background-color: #FF5722;
+}
+
+.sender {
+    width: 56%;
+    float: right;
+    color: #FF5722;
+    background-color: white;
+}
+
+#messages-box {
+    height: 550px;
+    overflow-y: scroll;
+
+    span {
+        font-size: 0.7em;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    & .callout {
+        padding: 7px;
+    }
+}

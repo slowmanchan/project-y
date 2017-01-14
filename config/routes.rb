@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'messages/index'
+
+  get 'messages/new'
+
+  get 'messages/create'
+
+  get 'conversations/index'
+
+  get 'conversations/create'
+
   resources :meetings
   get 'users/show'
 
@@ -28,13 +38,14 @@ Rails.application.routes.draw do
     end
   end
 
-
-  root "projects#index"
+  root 'projects#index'
   resources :projects do
     resource :group, module: :projects
     resource :like, module: :projects
     resources :ideas
   end
 
-
+  resources :conversations do
+    resources :messages
+  end
 end
