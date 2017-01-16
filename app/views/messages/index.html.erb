@@ -9,7 +9,7 @@
   <%= simple_form_for([@conversation, @message], remote: true, html: {id: 'message-form'}) do |f| %>
     <div class="row collapse">
       <div class="small-9 columns">
-        <%= f.input :body, placeholder: 'Enter your message', as: 'string', label: false, input_html: {autofocus: true} %>
+        <%= f.input :body, placeholder: 'Enter your message', as: 'string', label: false %>
         <%= f.hidden_field :user_id, value: current_user.id  %>
       </div>
       <div class="small-3 columns">
@@ -17,5 +17,4 @@
       </div>
     </div>
   <% end %>
-</div>
 </div>

@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update]
 
+  def index
+    @users = User.all
+  end
+
   def show
-    @projects = Project.where(user_id: current_user.id).order('created_at Desc')
+    @projects = Project.where(user_id: @user.id).order('created_at Desc')
   end
 
   def edit; end

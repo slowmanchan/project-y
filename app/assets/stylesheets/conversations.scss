@@ -25,6 +25,7 @@
         display: inline-block;
         width: 100%;
         padding: 10px;
+        transition: all 0.3s ease-in-out;
 
         &:hover {
             background-color: black;

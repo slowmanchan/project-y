@@ -1,0 +1,7 @@
+<h1>Users</h1>
+<% @users.each do |user| %>
+  <div class="callout">
+    <%= gravatar_for(user, size: 40) %>
+    <%= link_to user.email, user %>
+  </div>
+<% end %>
