@@ -1,0 +1,18 @@
+<div class="conversations">
+  <ul>
+    <li>
+      <h4>Chats</h4>
+    </li>
+    <% conversations.each do |conversation| %>
+      <% user_status = current_user.id == conversation.sender.id ? conversation.recipient : conversation.sender %>
+      <li>
+        <%= link_to conversation_messages_path(conversation),
+            remote: true,
+            class: "conversation-names #{'current-link' if conversation == conversations.first}" do %>
+          <%= gravatar_for(user_status, size: 30) %>
+          <span> <%= user_status.email %></span>
+        <%end%>
+      </li>
+    <% end %>
+  </ul>
+</div>
