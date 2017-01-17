@@ -1,14 +1,14 @@
 .reciever {
     width: 56%;
     float: left;
-    color: white;
-    background-color: #FF5722;
+    color: hsl(0%, 0%, 20%);
+    background-color: $teal;
 }
 
 .sender {
     width: 56%;
     float: right;
-    color: #FF5722;
+    color: $steel-blue;
     background-color: white;
 }
 
@@ -34,5 +34,13 @@
     input {
         position: relative;
         bottom: 10px;
+    }
+}
+
+.message_body {
+    input {
+        margin: 0;
+        position: relative;
+        bottom: 0;
     }
 }

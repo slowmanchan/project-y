@@ -5,13 +5,13 @@
     </li>
     <% conversations.each do |conversation| %>
       <% user_status = current_user.id == conversation.sender.id ? conversation.recipient : conversation.sender %>
-      <li>
-        <%= link_to conversation_messages_path(conversation),
+      <li id="conversation-item_<%= conversation.try(:id) %>">
+        <%= gravatar_for(user_status, size: 50) %>
+        <%= link_to user_status.email, conversation_messages_path(conversation),
             remote: true,
-            class: "conversation-names #{'current-link' if conversation == conversations.first}" do %>
-          <%= gravatar_for(user_status, size: 30) %>
-          <span> <%= user_status.email %></span>
-        <%end%>
+            class: "conversation-names #{'current-link' if conversation == conversations.first}" %>
+        <span class="delete-message"><%= link_to conversation, method: :delete, remote: true do %><i class="fa fa-times"></i><% end %></span>
+        <p><%= truncate(conversation.messages.first.try(:body)) %></p>
       </li>
     <% end %>
   </ul>

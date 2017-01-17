@@ -1,5 +1,5 @@
 $(function() {
-  $(".conversation-names").click(function(){
+  $('[id^="conversation-item"]').click(function() {
     $(".current-link").removeClass('current-link');
     $(this).addClass("current-link");
   });

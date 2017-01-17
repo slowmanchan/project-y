@@ -4,17 +4,23 @@
       <%= render "conversations", conversations: @conversations %>
     </div>
     <div class="small-12 medium-8 large-8 columns">
-      <div id="inbox-messages">
-        <div id="messages-box">
-          <div id="message">
-            <% @conversations.first.messages.order('created_at ASC').each do |message| %>
-              <%= render 'messages/message', message: message %>
-            <% end %>
+      <% unless @conversations.empty? %>
+        <div id="inbox-messages">
+          <div id="messages-box">
+            <div id="message">
+              <% @conversations.first.messages.order('created_at ASC').each do |message| %>
+                <%= render 'messages/message', message: message %>
+              <% end %>
+            </div>
+          </div>
+          <%= render 'messages/form', conversation: @conversations.first,
+                                    message: @message, remote: true %>
+        <% else %>
+          <div class="callout">
+            <p>You have no conversations</p>
           </div>
         </div>
-        <%= render 'messages/form', conversation: @conversations.first,
-                                    message: @message %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="message-form">
   <%= simple_form_for([conversation, message],
-      remote: true, html: {id: 'message-form'}) do |f| %>
+      remote: remote, html: {id: 'message-form'}) do |f| %>
     <div class="row collapse">
       <div class="small-9 columns">
         <%= f.input :body, placeholder: 'Enter your message',
@@ -9,7 +9,7 @@
         <%= f.hidden_field :user_id, value: current_user.id  %>
       </div>
       <div class="small-3 columns">
-        <%= f.submit 'send',class: 'button postfix'%>
+        <%= button_tag type: 'submit', class: 'button postfix' do %><i class="fa fa-paper-plane-o"></i><% end %>
       </div>
     </div>
   <% end %>
