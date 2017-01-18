@@ -7,13 +7,13 @@ class ConversationsController < ApplicationController
       'recipient_id = ? OR sender_id = ?',
       current_user.id,
       current_user.id
-    ).includes(:messages).order('messages.created_at DESC')
+    ).order('created_at DESC')
     @message = Message.new
   end
 
   def create
     @conversation = Conversation.create!(conversation_params)
-    redirect_to conversation_messages_path(@conversation)
+    redirect_to conversations_path
   end
 
   def destroy

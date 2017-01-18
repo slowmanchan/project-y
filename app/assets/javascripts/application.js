@@ -15,6 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require private_pub
 
 $(document).on('turbolinks:load', function() {
   $(function(){

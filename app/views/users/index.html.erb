@@ -1,7 +1,15 @@
-<h1>Users</h1>
-<% @users.each do |user| %>
-  <div class="callout">
-    <%= gravatar_for(user, size: 40) %>
-    <%= link_to user.email, user %>
+<div class="banner">
+  <h1>Users</h1>
+</div>
+<div class="down-arrow">
+</div>
+<div class="container">
+  <div class="user-cards">
+    <% @users.each do |user| %>
+      <div class="user-card">
+        <%= gravatar_for(user, size: 40) %>
+        <%= link_to truncate(user.email, length: 20), user %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

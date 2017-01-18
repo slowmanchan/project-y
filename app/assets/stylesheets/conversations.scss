@@ -30,6 +30,10 @@
         &:hover:not(:first-child) {
             color: white;
             background: $teal;
+
+            a {
+                color: white;
+            }
         }
 
         img {

@@ -1,2 +1,3 @@
 $('#message').append("<%= j render "message", message: @message %>");
 $('#message-form')[0].reset();
+<% publish_to conversation_messages_path(@conversation) %>
