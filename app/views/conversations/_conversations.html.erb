@@ -11,9 +11,8 @@
             remote: true,
             class: "conversation-names" %>
         <span class="delete-message"><%= link_to conversation, method: :delete, remote: true do %><i class="fa fa-times"></i><% end %></span>
-        <p class='message-preview'><%= truncate(conversation.messages.first.try(:body)) || '---' %></p>
+        <p class='message-preview'><%= truncate(conversation.messages.last.try(:body)) || '---' %></p>
       </li>
-      <% subscribe_to conversation_messages_path(conversation) %>
     <% end %>
   </ul>
 </div>
