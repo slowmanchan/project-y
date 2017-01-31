@@ -145,6 +145,7 @@ GEM
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
     orm_adapter (0.5.0)
+    pg (0.19.0)
     private_pub (1.0.3)
       faye
     public_suffix (2.0.4)
@@ -272,6 +273,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   omniauth
+  pg
   private_pub
   pundit
   rails (= 4.2.6)
