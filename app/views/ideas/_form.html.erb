@@ -1,6 +1,7 @@
-<%= simple_form_for([project, idea]) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-
-  <%= f.button :submit, "Save",class: "button" %>
-<% end %>
+<div class="new-idea-form">
+  <%= simple_form_for([project, idea]) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.button :submit, "Save",class: "button" %>
+  <% end %>
+</div>

@@ -7,7 +7,6 @@ class IdeasController < ApplicationController
   end
 
   def create
-
     @idea = @project.ideas.build(idea_params)
     @idea.user = current_user
 
@@ -15,34 +14,32 @@ class IdeasController < ApplicationController
       set_role
 
       (@project.users.uniq - [current_user]).each do |user|
-        Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @idea)
+        Notification.create(recipient: user, actor: current_user, action: 'posted', notifiable: @idea)
       end
 
-      flash[:success] = "Idea added successfully"
-      redirect_to [@project, @idea]
+      flash[:success] = 'Idea added successfully'
+      redirect_to @project
     else
-      flash.now[:alert] = "Idea not added"
-      render "new"
+      flash.now[:alert] = 'Idea not added'
+      render 'new'
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     authorize @idea, :update?
   end
 
   def update
-
     authorize @idea, :update?
 
     if @idea.update(idea_params)
-      flash[:success] = "Idea edited successfully"
+      flash[:success] = 'Idea edited successfully'
       redirect_to [@project, @idea]
     else
-      flash.now[:alert] = "Idea not saved"
-      render "edit"
+      flash.now[:alert] = 'Idea not saved'
+      render 'edit'
     end
   end
 
@@ -50,29 +47,28 @@ class IdeasController < ApplicationController
     authorize @idea, :destroy?
 
     @idea.destroy
-    flash[:success] = "Deleted!"
+    flash[:success] = 'Deleted!'
     redirect_to @project
   end
 
   private
 
-    def idea_params
-      params.require(:idea).permit(:title, :description, :ideas_count)
-    end
+  def idea_params
+    params.require(:idea).permit(:title, :description, :ideas_count)
+  end
 
-    def set_project
-      @project = Project.find(params[:project_id])
-    end
+  def set_project
+    @project = Project.find(params[:project_id])
+  end
 
-    def set_idea
-      @idea = @project.ideas.find(params[:id])
-    end
+  def set_idea
+    @idea = @project.ideas.find(params[:id])
+  end
 
-    def set_role
-      @role = @idea.roles.new
-      @role.user_id = current_user.id
-      @role.role = 'manager'
-      @role.save
-    end
-
+  def set_role
+    @role = @idea.roles.new
+    @role.user_id = current_user.id
+    @role.role = 'manager'
+    @role.save
+  end
 end
