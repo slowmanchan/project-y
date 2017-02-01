@@ -5,17 +5,15 @@ class ProjectsController < ApplicationController
 
   def index
     @tags = Project.tag_counts_on(:tags)
-    @users = User.order("ideas_count desc")
+    @users = User.limit(10).order('ideas_count desc')
 
-    if user_signed_in?
-      @meetings = Meeting.where(user_id: current_user.id)
-    end
+    @meetings = Meeting.where(user_id: current_user.id) if user_signed_in?
 
-    if params[:tag]
-      @projects = Project.tagged_with(params[:tag])
-    else
-      @projects = Project.order('created_at DESC')
-    end
+    @projects = if params[:tag]
+                  Project.tagged_with(params[:tag])
+                else
+                  Project.order('created_at DESC')
+                end
   end
 
   def new
@@ -28,10 +26,10 @@ class ProjectsController < ApplicationController
     if @project.save
       set_role
 
-      flash[:success] = "Your project is alive!"
+      flash[:success] = 'Your project is alive!'
       redirect_to @project
     else
-      flash.now[:alert] = "Project has not been created."
+      flash.now[:alert] = 'Project has not been created.'
       render 'new'
     end
   end
@@ -40,17 +38,16 @@ class ProjectsController < ApplicationController
     authorize @project, :update?
   end
 
-  def show
-  end
+  def show; end
 
   def update
     authorize @project, :update?
     if @project.update(project_params)
-      flash[:success] = "Project saved!"
+      flash[:success] = 'Project saved!'
       redirect_to @project
     else
-      flash.now[:alert] = "Project not saved"
-      render "edit"
+      flash.now[:alert] = 'Project not saved'
+      render 'edit'
     end
   end
 
@@ -59,7 +56,7 @@ class ProjectsController < ApplicationController
 
     @project.destroy
 
-    flash[:success] = "Project deleted"
+    flash[:success] = 'Project deleted'
     redirect_to projects_path
   end
 
@@ -76,7 +73,7 @@ class ProjectsController < ApplicationController
   def setup_project
     @project = Project.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "The project does not exist"
+    flash[:alert] = 'The project does not exist'
     redirect_to projects_path
   end
 
@@ -90,9 +87,8 @@ class ProjectsController < ApplicationController
 
   def set_role
     @role = @project.roles.new
-    @role.role = "manager"
+    @role.role = 'manager'
     @role.user_id = current_user.id
     @role.save
   end
-
 end

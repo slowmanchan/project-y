@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-<script src="https://use.fontawesome.com/0b08d8b63f.js"></script>
-
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title><%= @title || "ProjectY" %></title>
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-
-</head>
-
-<body>
-  <%= render 'layouts/header' %>
-  <% flash.each do |key, message| %>
-  <div class="callout <%= key %>" data-closable><%= message %>
-    <button class="close-button" type="button" data-close><span>&times;</span></button>
-  </div>
-  <% end %>
-  <%= yield %>
-
-  <%= render 'layouts/footer' %>
+  <head>
+    <script src="https://use.fontawesome.com/0b08d8b63f.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= @title || "ProjectY" %></title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Kaushan+Script" rel="stylesheet">
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <% flash.each do |key, message| %>
+      <div class="callout <%= key %>" data-closable><%= message %>
+        <button class="close-button" type="button" data-close><span>&times;</span></button>
+      </div>
+    <% end %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
